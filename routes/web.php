@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\TweetController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +16,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/',[DashboardController::class, 'index'] )->name('dashboard');
+
+Route::get('/terms', function() {
+    return view('terms');
 });
+
+Route::delete('/tweets/{tweet}',[TweetController::class,'show'] )->name('tweets.show');
+
+Route::post('/tweets',[TweetController::class,'store'] )->name('tweets.post');
+
+Route::delete('/tweets/{tweet}',[TweetController::class,'store'] )->name('tweets.destroy');
