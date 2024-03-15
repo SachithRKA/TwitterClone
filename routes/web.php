@@ -18,12 +18,19 @@ use App\Http\Controllers\AdminController;
 
 Route::get('/',[DashboardController::class, 'index'] )->name('dashboard');
 
-Route::get('/terms', function() {
-    return view('terms');
-});
 
-Route::delete('/tweets/{tweet}',[TweetController::class,'show'] )->name('tweets.show');
+Route::get('/tweets/{tweet}',[TweetController::class,'show'] )->name('tweets.show');
+
+Route::put('/tweets/{tweet}',[TweetController::class,'update'] )->name('tweets.update');
+
+Route::get('/tweets/{tweet}/edit',[TweetController::class,'edit'] )->name('tweets.edit');
 
 Route::post('/tweets',[TweetController::class,'store'] )->name('tweets.post');
 
 Route::delete('/tweets/{tweet}',[TweetController::class,'store'] )->name('tweets.destroy');
+
+
+
+Route::get('/terms', function() {
+    return view('terms');
+});

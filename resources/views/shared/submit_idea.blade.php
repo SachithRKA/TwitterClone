@@ -3,8 +3,8 @@
     <form action="{{ route('tweets.post') }}" method="post">
         @csrf
         <div class="mb-3">
-            <textarea class="form-control" id="tweet" name="tweets" rows="3"></textarea>
-            @error('tweets')
+            <textarea class="form-control" id="content" name="content" rows="3"></textarea>
+            @error('content')
                 <span class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
             @enderror
         </div>
